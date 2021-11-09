@@ -1,5 +1,5 @@
-const moongoose = require("moongoose");
-const Schema = moongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
   name: {
@@ -8,8 +8,8 @@ const ItemSchema = new Schema({
   },
   date: {
     type: Date,
-    required: Date.now,
+    default: Date.now,
   },
 });
 
-module.exports = Item = moongose.model("item", ItemSchema);
+module.exports = Item = mongoose.model("item", ItemSchema);
