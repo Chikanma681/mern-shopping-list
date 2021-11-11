@@ -4,20 +4,19 @@ import {
   ListGroup,
   ListGroupItem,
   Button,
-  Card,
-  CardText,
+  // Card,
+  // CardText,
 } from "reactstrap";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
+import {connect} from 'react-redux';
+import {getItems} from '../redux/actions/itemAction';
+import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
 
 class ShoppingList extends Component {
-  state = {
-    items: [
-      { id: 1, name: "Eggs" },
-      { id: 2, name: "Water" },
-      { id: 3, name: "Steak" },
-      { id: 4, name: "Milk" },
-    ],
+
+  componentDidMount() {
+    this.props.getItems();
   };
 
   prompter = () => {
@@ -31,7 +30,7 @@ class ShoppingList extends Component {
   };
 
   render() {
-    const { items } = this.state;
+    const { items } = this.props.item;
     return (
       <Container className="mt-3">
         <Button
@@ -69,6 +68,16 @@ class ShoppingList extends Component {
       </Container>
     );
   }
+};
+
+ShoppingList.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
 }
 
-export default ShoppingList;
+const mapStateToProps = (state)=>{
+  return{
+    item:state.item
+}};
+
+export default connect(mapStateToProps,{getItems})(ShoppingList); // connect takes mapstatetoprops and actions

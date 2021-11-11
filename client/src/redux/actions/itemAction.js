@@ -1,7 +1,10 @@
-import { GET_ITEMS, ADD_ITEMS, DELETE_ITEMS } from "../types/action-types.js";
+import {actionTypes} from "../types/action-types";
+
+const { GET_ITEMS, ADD_ITEMS, DELETE_ITEMS } = actionTypes;
+
 
 export const getItems = () => {
     return {
-        type: GET_ITEMS,
+        type: GET_ITEMS
     }
 }
