@@ -4,10 +4,10 @@
   "description": "Shopping List built with MERN stack",
   "main": "server.js",
   "scripts": {
-    "client-install":"cd client && yarn add",
+    "client-install": "cd client && yarn add",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client":"cd client && yarn start",
+    "client": "cd client && yarn start",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Chikanma Onuegbu",
@@ -15,6 +15,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^6.3.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.0.12",
     "nodemon": "^2.0.14"
